@@ -34,10 +34,10 @@
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav navbar-left">
 					<li>
-						<a href="Mens.html">Mens</a>
+						<a href="Mens.php">Mens</a>
 					</li>
 					<li>
-						<a href="Womens.html">Womens</a>
+						<a href="Womens.php">Womens</a>
 					</li>
 					<li>
 						<a href="Style.html">Style</a>
