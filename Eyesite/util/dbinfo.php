@@ -1,6 +1,6 @@
 <?php
 $hn = "localhost";
-$db = "home_depot";
+$db = "eyesite";
 $un = "root";
 $pw = "";
 ?>

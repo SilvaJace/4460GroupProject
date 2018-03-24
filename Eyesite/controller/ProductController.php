@@ -3,14 +3,14 @@
 require_once '../model/model.php';
 require_once '../checkSession.php';
 
-$obj = new ProductListModel();
+$obj = new GlassesListModel();
 $obj->selectAll();
-$list = $obj->productList;
+$list = $obj->GlassesList;
 
 session_start();
-$_SESSION['productList'] = $list;	
+$_SESSION['GlassesList'] = $list;	
 
-header("Location: ../view/view-product.php");
+header("Location: ../view/Home.php");
 exit();
 
 
