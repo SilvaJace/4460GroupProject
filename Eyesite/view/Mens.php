@@ -66,7 +66,7 @@ for($j=0; $j<$rows; ++$j)
 	<br>
 	$row[3]
 	<br>
-		  <button class="btn btn-lg"><a href="viewproduct.php"> Purchase</a></button>
+		  <button class="btn btn-lg"><a href="productdetails.php?product_id=$row[4]"> Purchase</a></button>
 	</div>
 	</div>
 	

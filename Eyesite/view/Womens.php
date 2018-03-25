@@ -66,7 +66,7 @@ for($j=0; $j<$rows; ++$j)
 	<br>
 	$row[3]
 	<br>
-		  <button class="btn btn-lg"><a href="viewproduct.php"> Purchase</a></button>
+		  <button class="btn btn-lg"><a href="productdetails.php?product_id=$row[4]"> Purchase</a></button>
 	</div>
 	</div>
 	
@@ -111,6 +111,7 @@ $conn->close();
                 <div class="row">
                     <div class="col-sm-12 form-group">
                         <button class="btn btn-default pull-right" type="submit">Send</button>
+						<input type="hidden" name="product_id" value=<?php echo $data[4] ?>>
                     </div>
                 </div>
             </div>
