@@ -26,13 +26,15 @@
     <?php include('header.php') ?>
     
 <div class="container">
-            <form method='post' action='../controller/LoginController.php'>
-                    Username: <input type='text' name='username'><br>
+            <center><form method='post' action='../controller/LoginController.php'>
+                    Username: <input type='text' name='username'>
+					<br>
                     Password: <input type='password' name='password'>
                     <input type='submit' value='Login'>
                 </form>
 
       <a href="createaccount.php"> Don't Have An Account?</a>
+	  </center>
       </div>
 
 </body>
