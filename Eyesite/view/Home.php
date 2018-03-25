@@ -1,3 +1,8 @@
+<?php
+require_once '../util/dbinfo.php';
+// require_once '../checkSession.php';
+?>
+
 <html>
 
 <head>
@@ -25,54 +30,12 @@
                     </div> -->
 
 	<!-- Navbar -->
-	<nav class="navbar navbar-default">
-		<div class="container">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="#myPage">
-				</a>
-			</div>
-			<div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav navbar-left">
-					<li>
-						<a href="Mens.php">Mens</a>
-					</li>
-					<li>
-						<a href="Womens.php">Womens</a>
-					</li>
-					<li>
-						<a href="Style.html">Style</a>
-					</li>
-					<li>
-						<a href="Help.html">Help</a>
-					</li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li>
-						<a href="my-account.html">My Account</a>
-					</li>
-					<li>
-						<a href="my-cart.html">My Cart</a>
-					</li>
-					<li>
-						<a href="loginscreen.html"> Login</a>
-					</li>
-
-				</ul>
-			</div>
-			<div class="home-header">
-				<a href="Home.html">
-					<h1 class="page-heading">EyeSite</h1>
-					<p>
-						<i>A Welcome Site For Sore Eyes</i>
-					</p>
-				</a>
-			</div>
-		</div>
-	</nav>
+	<?php include('header.php') ?>
 
 
 	<!-- Portfolio -->
 	<div id="portfolio" class="container-fluid text-center bg-grey">
+	<?php print_r($_SESSION); ?>
 
 		<h2>Trending Everywhere!</h2>
 		<div id="myCarousel" class="carousel slide text-center" data-ride="carousel">

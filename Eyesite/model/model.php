@@ -5,38 +5,42 @@ require_once '..\util\dbinfo.php';
 $conn = new mysqli($hn, $un, $pw, $db);
 if($conn->connect_error) die($conn->connect_error);
 
-class ProductModel{
-	public $product_id,$name,$price,$img;
+class GlassesModel{
+	public $product_id, $frame, $size, $price, $gender, $img;
 	
-	function __construct($product_id,$name,$price,$img){
+	function __construct($product_id, $frame, $size, $price, $gender, $img){
 		$this->product_id=$product_id;
-		$this->name=$name;
+		$this->frame=$frame;
+		$this->size=$size;
 		$this->price=$price;
+		$this->gender=$gender;
 		$this->img=$img;
 	}		
 	
 	function insert(){
 		global $conn;
 		$product_id = $this->product_id;
-		$name = $this->name;
+		$frame = $this->frame;
+		$size = $this->size;
 		$price = $this->price;
+		$gender = $this->gender;
 		$img = $this->img;
 		
-		$query = "insert into product (product_id, name, price, img) 
-			values ('$product_id','$name','$price','$img') ";
+		$query = "insert into glasses (product_id, frame, size, price, gender, img) 
+			values ('$product_id', '$frame', '$size', '$price', '$gender', '$img') ";
 		$result=$conn->query($query);
 		if(!$result) die ($conn->error);
 	}
 	
 }
 
-class ProductListModel{
-	public $ProductList = Array();
+class GlassesListModel{
+	public $GlassesList = Array();
 		
 	function selectAll(){
-		global $ProductList, $conn;
+		global $GlassesList, $conn;
 		
-		$query = "Select * from product";
+		$query = "Select * from glasses";
 		$result=$conn->query($query);
 		if(!$result) die ($conn->error);
 
@@ -44,10 +48,54 @@ class ProductListModel{
 		for($j=0; $j<$rows; $j++) {
 			$result->data_seek($j);
 			$row=$result->fetch_array(MYSQLI_NUM);
-			$product = new ProductModel($row[0],$row[1],$row[2],$row[3]);
-			$this->ProductList[] = $product;
+			$glasses = new GlassesModel($row[0],$row[1],$row[2],$row[3],$row[4],$row[5]);
+			$this->GlassesList[] = $glasses;
 		}
 	}
 	
+}
+
+class User
+{
+    public $forename, $surname, $username, $password;
+    public function __construct($forename, $surname, $username, $password, $role)
+    {
+        $this->forename = $forename;
+        $this->surname = $surname;
+        $this->username = $username;
+        $this->password = $password;
+    }
+    public function insert()
+    {
+        global $conn;
+        $forename = $this->forename;
+        $surname = $this->surname;
+        $username = $this->username;
+        $password = $this->password;
+        $query = "insert into users (forename, surname, username, password)
+			values (NULL, '$forename', '$surname', '$username' '$password') ";
+        $result = $conn->query($query);
+        if (!$result) {
+            die(
+                "<div class='flash-message' style='position: relative;'>$conn->error</div>"
+            );
+        }
+	}
+	public function update($forename, $surname, $username, $password, $role)
+	{
+		global $conn;
+		$query = "UPDATE" 'users' SET 'forename' = '$forename', 'surname' = '$surname', 'username' = '$username', 'password' = '$password'
+
+		$result = $conn->query($query);
+		if (!$result) {
+			die("<div class='flash message' style 'position: relative;'>$conn->error</div>");
+}
+	}
+	public function delete($where)
+	$query = "delete from users where $where";
+	$result = $conn->query($query);
+	if (!$result) {
+		die("<div class='flash message' style 'position: relative;'>$conn->error</div>");
+}
 }
 ?>
