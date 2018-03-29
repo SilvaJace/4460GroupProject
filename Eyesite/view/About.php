@@ -32,7 +32,15 @@ require_once '../checkSession.php';
 	<?php include('header.php') ?>
     
 	
-	
+	  <div id="products" class="container-fluid text-center">
+  <h2>About Us</h2>
+		  
+		  <h3> Digital Eye Strain </h3>
+		  <p> In an increasingly technology-driven world, we find ourselves staring at screens for hours everyday. We are committed to adapting to this and protecting your eyes against unneccesary eye strain. Feel the difference as you avoid headaches and long-term eye strain with our glasses. </p>
+		  <p> Thank you for visiting! Tell your friends! <p>
+		  
+		  
+	</div>
 	
     
 
