@@ -29,7 +29,7 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
 						<a href="Womens.php">Womens</a>
 					</li>
 					<li>
-						<a href="Style.php">Style</a>
+						<a href="About.php">About Us</a>
 					</li>
 					<li>
 						<a href="Help.php">Help</a>
