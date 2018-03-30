@@ -7,10 +7,8 @@ require_once '../checkSession.php';
 
 $conn = new mysqli($hn, $un, $pw, $db);
 if($conn->connect_error) die($conn->connect_error);
-
-
-
 ?>
+ 
 <html>
 
 <title>Payment Info</title>
@@ -38,10 +36,53 @@ if($conn->connect_error) die($conn->connect_error);
 
 
   
-  <div id="my-cart" class="container-fluid text-center">
+  <div id="payment-information" class="container-fluid text-center">
   <h2>Payment Information</h2>
-			
-	</nav>
+	
+<?php
+echo <<<_END
+<form action="payment.php" method="post"<pre>
+	Card Number <input type="text" name="cardnumber"></br></br>
+	Payment Type <input type="text" name="productimage"></br></br>
+	Exp Month <input type="text" name="color"></br></br>
+	Exp Year <input type="text" name="price"></br></br>
+	
+	<input type="submit" name="PAY">
+	</br></br>
+	<br>
+</pre></form>
+_END;
+
+
+if(isset($_POST['productid']) &&
+	isset($_POST['productname']) &&
+	isset($_POST['productimage']) &&
+	isset($_POST['color']) &&
+	isset($_POST['price'])) {
+		$productid=get_post($conn, 'productid');
+		$productname=get_post($conn, 'productname');
+		$productimage=get_post($conn, 'productimage');
+		$color=get_post($conn, 'color');
+		$price=get_post($conn, 'price');
+		$query="INSERT INTO product (productid, productname, productimage, color, price) VALUES ".
+			"('$productid','$productname','$productimage','$color','$price')";
+		$result=$conn->query($query);
+		if(!$result) echo "INSERT failed: $query <br>" .
+			$conn->error . "<br><br>";
+	
+	//$result->close();
+	
+}
+
+$conn->close();
+
+function get_post($conn, $var) {
+	return $conn->real_escape_string($_POST[$var]);
+}
+
+?>	
+	
+	</body>
 
 
 
