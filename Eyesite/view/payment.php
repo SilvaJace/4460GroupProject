@@ -42,10 +42,11 @@ if($conn->connect_error) die($conn->connect_error);
 <?php
 echo <<<_END
 <form action="payment.php" method="post"<pre>
+	First & Last Name <input type="text" name="custname"></br></br>
 	Card Number <input type="text" name="cardnumber"></br></br>
-	Payment Type <input type="text" name="productimage"></br></br>
-	Exp Month <input type="text" name="color"></br></br>
-	Exp Year <input type="text" name="price"></br></br>
+	Payment Type <input type="text" name="payment_type"></br></br>
+	Exp Month <input type="text" name="exp_month"></br></br>
+	Exp Year <input type="text" name="exp_year"></br></br>
 	
 	<input type="submit" name="PAY">
 	</br></br>
@@ -54,18 +55,16 @@ echo <<<_END
 _END;
 
 
-if(isset($_POST['productid']) &&
-	isset($_POST['productname']) &&
-	isset($_POST['productimage']) &&
-	isset($_POST['color']) &&
-	isset($_POST['price'])) {
-		$productid=get_post($conn, 'productid');
-		$productname=get_post($conn, 'productname');
-		$productimage=get_post($conn, 'productimage');
-		$color=get_post($conn, 'color');
-		$price=get_post($conn, 'price');
-		$query="INSERT INTO product (productid, productname, productimage, color, price) VALUES ".
-			"('$productid','$productname','$productimage','$color','$price')";
+if(isset($_POST['cardnumber']) &&
+	isset($_POST['payment_type']) &&
+	isset($_POST['exp_month']) &&
+	isset($_POST['exp_year'])) {
+		$cardnumber=get_post($conn, 'cardnumber');
+		$payment_type=get_post($conn, 'payment_type');
+		$exp_month=get_post($conn, 'exp_month');
+		$exp_year=get_post($conn, 'exp_year');
+		$query="INSERT INTO payment (cardnumber, payment_type, exp_month, exp_year) VALUES ".
+			"('$cardnumber','$payment_type','$exp_month','$exp_year')";
 		$result=$conn->query($query);
 		if(!$result) echo "INSERT failed: $query <br>" .
 			$conn->error . "<br><br>";

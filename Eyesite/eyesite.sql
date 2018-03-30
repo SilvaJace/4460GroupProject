@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 25, 2018 at 11:57 PM
+-- Generation Time: Mar 30, 2018 at 03:09 AM
 -- Server version: 5.1.53
 -- PHP Version: 5.3.4
 
@@ -95,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `ordertable` (
   `date_paid` date NOT NULL,
   `quantity` int(6) NOT NULL,
   PRIMARY KEY (`order_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
 
 --
 -- Dumping data for table `ordertable`
@@ -118,7 +118,12 @@ INSERT INTO `ordertable` (`order_id`, `order_total`, `date_paid`, `quantity`) VA
 (14, '0.00', '0000-00-00', 0),
 (15, '0.00', '0000-00-00', 0),
 (16, '0.00', '0000-00-00', 0),
-(17, '0.00', '0000-00-00', 0);
+(17, '0.00', '0000-00-00', 0),
+(18, '0.00', '0000-00-00', 0),
+(19, '0.00', '0000-00-00', 0),
+(20, '0.00', '0000-00-00', 0),
+(21, '0.00', '0000-00-00', 0),
+(22, '0.00', '0000-00-00', 0);
 
 -- --------------------------------------------------------
 
@@ -127,10 +132,14 @@ INSERT INTO `ordertable` (`order_id`, `order_total`, `date_paid`, `quantity`) VA
 --
 
 CREATE TABLE IF NOT EXISTS `payment` (
-  `paymentid` int(11) NOT NULL,
-  `CreditCard` int(11) NOT NULL,
-  `expdate` date NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `paymentid` int(11) NOT NULL AUTO_INCREMENT,
+  `custname` varchar(128) NOT NULL,
+  `cardnumber` int(16) NOT NULL,
+  `payment_type` varchar(128) NOT NULL,
+  `exp_month` varchar(128) NOT NULL,
+  `exp_year` int(2) NOT NULL,
+  PRIMARY KEY (`paymentid`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `payment`
@@ -148,7 +157,7 @@ CREATE TABLE IF NOT EXISTS `roles` (
   `username` varchar(50) NOT NULL,
   `role` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `roles`
@@ -174,5 +183,5 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`forename`, `surname`, `username`, `password`) VALUES
-('Chris', 'Konesavanh', 'ckonesav', 'hello'),
+('Chris', 'Konesavanh', 'ckonesavanh', 'dfa1f555d38f5ccf38e1aeafcf2c07f8'),
 ('Jason', 'Silva', 'JSilva', 'J@sonSilv@95');
