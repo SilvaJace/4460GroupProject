@@ -1,3 +1,12 @@
+<?php
+
+require_once '../util/dbinfo.php';
+require_once '../checkSession.php';
+
+$conn = new mysqli($hn, $un, $pw, $db);
+if ($conn->connect_error) die($conn->connect_error);
+?>
+
 <html>
 <head>
 <title>Add Product</title>
@@ -24,14 +33,6 @@
 </html>
 <?php include('header.php') ?>
 <?php
-
-require_once '../util/dbinfo.php';
-require_once '../checkSession.php';
-
-$conn = new mysqli($hn, $un, $pw, $db);
-if ($conn->connect_error) die($conn->connect_error);
-
-
 $username = $_SESSION['username'];
 
 $query="SELECT `role` FROM `users` WHERE `username` = '$username'";
