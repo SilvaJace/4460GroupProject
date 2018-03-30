@@ -29,7 +29,7 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
 						<a href="Womens.php">Womens</a>
 					</li>
 					<li>
-						<a href="About.php">About Us</a>
+						<a href="Style.php">Style</a>
 					</li>
 					<li>
 						<a href="Help.php">Help</a>
@@ -38,8 +38,7 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
 				<ul class="nav navbar-nav navbar-right">
 				<li>
 						<a href="addProduct.php">Add Product</a>
-					</li>
-					<li>
+					</li><li>
 						<a href="my-cart.php">My Cart</a>
 					</li>
 					<li>
