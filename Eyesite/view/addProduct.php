@@ -54,7 +54,7 @@ $query="SELECT `role` FROM `roles` WHERE `username` = '$username'";
 		}
 
 echo <<<_END
-<form action="addProduct.php" method="post"<pre>
+<center><form action="addProduct.php" method="post"<pre>
 	Glasses Frame <input type="text" name="frame"></br></br>
 	Size <input type="text" name="size"></br></br>
 	Price <input type="text" name="price"></br></br>
@@ -64,7 +64,7 @@ echo <<<_END
 	<input type="submit" name="ADD RECORD">
 	</br></br>
 	<a href="home.php" >Home Page</a>
-</pre></form>
+</pre></form></center>
 _END;
 
 
