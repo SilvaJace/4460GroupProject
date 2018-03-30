@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 30, 2018 at 03:09 AM
+-- Generation Time: Mar 30, 2018 at 05:55 AM
 -- Server version: 5.1.53
 -- PHP Version: 5.3.4
 
@@ -95,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `ordertable` (
   `date_paid` date NOT NULL,
   `quantity` int(6) NOT NULL,
   PRIMARY KEY (`order_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=31 ;
 
 --
 -- Dumping data for table `ordertable`
@@ -123,7 +123,15 @@ INSERT INTO `ordertable` (`order_id`, `order_total`, `date_paid`, `quantity`) VA
 (19, '0.00', '0000-00-00', 0),
 (20, '0.00', '0000-00-00', 0),
 (21, '0.00', '0000-00-00', 0),
-(22, '0.00', '0000-00-00', 0);
+(22, '0.00', '0000-00-00', 0),
+(23, '0.00', '0000-00-00', 0),
+(24, '0.00', '0000-00-00', 0),
+(25, '0.00', '0000-00-00', 0),
+(26, '0.00', '0000-00-00', 0),
+(27, '0.00', '0000-00-00', 0),
+(28, '0.00', '0000-00-00', 0),
+(29, '0.00', '0000-00-00', 0),
+(30, '0.00', '0000-00-00', 0);
 
 -- --------------------------------------------------------
 
@@ -139,7 +147,7 @@ CREATE TABLE IF NOT EXISTS `payment` (
   `exp_month` varchar(128) NOT NULL,
   `exp_year` int(2) NOT NULL,
   PRIMARY KEY (`paymentid`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `payment`
@@ -157,12 +165,14 @@ CREATE TABLE IF NOT EXISTS `roles` (
   `username` varchar(50) NOT NULL,
   `role` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `roles`
 --
 
+INSERT INTO `roles` (`id`, `username`, `role`) VALUES
+(1, 'ckonesavanh', 'admin');
 
 -- --------------------------------------------------------
 
