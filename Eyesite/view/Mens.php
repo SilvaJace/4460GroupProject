@@ -37,7 +37,7 @@ if($conn->connect_error) die($conn->connect_error);
 
   
   <div id="products" class="container-fluid text-center">
-  <h2>MENS FRAMES</h2>
+  <h2>MEN'S FRAMES</h2>
 
 
   
