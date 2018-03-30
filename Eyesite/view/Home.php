@@ -51,7 +51,7 @@ require_once '../util/dbinfo.php';
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
 				<div class="item active">
-					<a href="mens.html">
+					<a href="mens.php">
 						<center>
 							<img height='' width='' src='../img/StephenColbert.jpg'>
 						</center>
@@ -62,7 +62,7 @@ require_once '../util/dbinfo.php';
 					</h4>
 				</div>
 				<div class="item">
-					<a href="womens.html">
+					<a href="womens.php">
 						<center>
 							<img height='332' width='605' src='../img/EmmaStone.jpg'>
 						</center>
@@ -72,7 +72,7 @@ require_once '../util/dbinfo.php';
 						</h4>
 				</div>
 				<div class="item">
-					<a href="style.html">
+					<a href="style.php">
 						<center>
 							<img height='332' width='605' src='../img/JDepp.jpg'>
 						</center>
@@ -82,7 +82,7 @@ require_once '../util/dbinfo.php';
 						</h4>
 				</div>
 				<div class="item">
-					<a href="help.html">
+					<a href="help.php">
 						<center>
 							<img height='332' width='605' src='../img/Questioned.jpg' </center>
 							<h4> "Can't find what you're looking for? Ask us!"
