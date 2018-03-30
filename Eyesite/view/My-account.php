@@ -1,7 +1,7 @@
 
 <?php
 require_once '../util/dbinfo.php';
-//require_once '../checkSession.php';
+require_once '../checkSession.php';
 ?>
 <html>
 

@@ -1,3 +1,10 @@
+<?php
+require_once '../util/dbinfo.php';
+require_once '../checkSession.php';
+
+$conn = new mysqli($hn, $un, $pw, $db);
+if ($conn->connect_error) die($conn->connect_error);
+?>
 <html> 
 
 <head>
@@ -17,24 +24,18 @@
 </head>
 
 <body>
-</body>
-</html>
+
+
 <?php include('header.php') ?>
 <?php
 
-require_once '../util/dbinfo.php';
-
-$conn = new mysqli($hn, $un, $pw, $db);
-if ($conn->connect_error) die($conn->connect_error);
-
 if(isset($_GET['username'])){
+	$username = $_GET['username'];
 	
-	$isbn = $_GET['username'];
-	
-	$query = "select * from users where username='$username' ";
+	$query = "SELECT * from users where username=$username ";
 	$result = $conn->query($query);
 	if(!$result) die ($conn->error);
-	
+
 $rows = $result->num_rows;
 
 	for($j=0; $j<$rows; ++$j){
@@ -58,8 +59,8 @@ _END;
 	
 	}
 }
-
-if(isset($_POST['update'])){
+if(isset($_GET['username'])){
+if(isset($_POST['username'])){
 	
 	$username = $_POST['username'];
 	$forename = $_POST['forename'];
@@ -67,7 +68,7 @@ if(isset($_POST['update'])){
 	$password = $_POST['password'];
 	
 	
-	$query = "update users set username='$username', forename='$forename', title='$surname', category='$password' where username = $username ";
+	$query = "UPDATE users set username='$username', forename='$forename', title='$surname', category='$password' where username = $username ";
 	
 	$result = $conn->query($query); 
 	if(!$result) die($conn->error);
@@ -75,7 +76,9 @@ if(isset($_POST['update'])){
 	header("Location: Home.php");
 	
 }
-
+}
 $conn->close();
 
 ?>
+</body>
+</html>

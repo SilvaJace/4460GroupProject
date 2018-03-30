@@ -35,7 +35,7 @@ if ($conn->connect_error) die($conn->connect_error);
 <?php
 $username = $_SESSION['username'];
 
-$query="SELECT `role` FROM `users` WHERE `username` = '$username'";
+$query="SELECT `role` FROM `roles` WHERE `username` = '$username'";
 		$result=$conn->query($query);
 		if(!$result) echo "Query failed: $query <br>" .
 			$conn->error . "<br><br>";
@@ -79,7 +79,7 @@ isset($_POST['price']) &&
 		$gender=get_post($conn, 'gender');
 		$img=get_post($conn, 'img');
 		$query="INSERT INTO glasses (frame, size, price, gender, img) VALUES ".
-			"('$frame','$size', $price', '$gender', $img')";
+			"('$frame','$size', '$price', '$gender', '$img')";
 		$result=$conn->query($query);
 		if(!$result) echo "INSERT failed: $query <br>" .
 			$conn->error . "<br><br>";
