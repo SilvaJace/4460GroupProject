@@ -41,7 +41,7 @@ if($conn->connect_error) die($conn->connect_error);
 	
 <?php
 echo <<<_END
-<form action="payment.php" method="post"<pre>
+<form action="ordersummary.php" method="post"<pre>
 	First & Last Name <input type="text" name="custname"></br></br>
 	Card Number <input type="text" name="cardnumber"></br></br>
 	Payment Type <input type="text" name="payment_type"></br></br>
@@ -55,16 +55,18 @@ echo <<<_END
 _END;
 
 
-if(isset($_POST['cardnumber']) &&
+if(isset($_POST['custname']) &&
+	isset($_POST['cardnumber']) &&
 	isset($_POST['payment_type']) &&
 	isset($_POST['exp_month']) &&
 	isset($_POST['exp_year'])) {
+		$custname=get_post($conn, 'custname');
 		$cardnumber=get_post($conn, 'cardnumber');
 		$payment_type=get_post($conn, 'payment_type');
 		$exp_month=get_post($conn, 'exp_month');
 		$exp_year=get_post($conn, 'exp_year');
-		$query="INSERT INTO payment (cardnumber, payment_type, exp_month, exp_year) VALUES ".
-			"('$cardnumber','$payment_type','$exp_month','$exp_year')";
+		$query="INSERT INTO payment (custname, cardnumber, payment_type, exp_month, exp_year) VALUES ".
+			"('$custname','$cardnumber','$payment_type','$exp_month','$exp_year')";
 		$result=$conn->query($query);
 		if(!$result) echo "INSERT failed: $query <br>" .
 			$conn->error . "<br><br>";
